@@ -11,9 +11,9 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
+        <q-toolbar-title>Expense Tracker App 💸 </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div>Built with Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
@@ -22,10 +22,14 @@
         <q-item-label header> Essential Links </q-item-label>
 
         <EssentialLink
-          v-for="link in linksList"
+          v-for="link in essentialLinks"
           :key="link.title"
           v-bind="link"
         />
+        <q-separator />
+        <q-item class="justify-center q-py-lg">
+          <ButtonSignOut />
+        </q-item>
       </q-list>
     </q-drawer>
 
@@ -41,11 +45,8 @@ import EssentialLink, {
   EssentialLinkProps,
 } from 'components/EssentialLink.vue';
 
-defineOptions({
-  name: 'MainLayout',
-});
-
-const linksList: EssentialLinkProps[] = [
+import ButtonSignOut from 'src/components/ButtonSignOut.vue';
+const essentialLinks: EssentialLinkProps[] = [
   {
     title: 'Account',
     caption: 'Manage my account settings',
