@@ -49,6 +49,7 @@ const getCategories = async () => {
   }
 };
 </script>
+
 <template>
   <div class="masonry">
     <div class="column masonry-container">
@@ -66,12 +67,12 @@ const getCategories = async () => {
         <q-card
           class="q-ma-sm"
           :style="{ backgroundColor: category.color }"
-          @click="getExpensesByCategoryId(category.name, category.id)"
+          @click="getExpensesByCategoryId(category.name, category.id!)"
         >
           <q-card-section>
             <div class="text-h6">{{ category.name }}</div>
           </q-card-section>
-          <expenses-category-total :category-id="category.id" />
+          <expenses-category-total :category-id="category.id!" />
         </q-card>
       </div>
     </div>

@@ -15,14 +15,15 @@ interface Props {
 const props = defineProps<Props>();
 
 const totalPerCategory = computed(() => {
-  return expenses.value.reduce((total: number, expense: Expense): number => {
-    if (expense.category_id === props.categoryId) {
-      return total + expense.amount;
-    }
-    return total;
-  }, 0);
+  return expenses.value.filter(
+    (expense: Expense) => expense.category_id === props.categoryId
+  );
 });
 </script>
+
 <template>
-  <q-card-section align="right"> Total: {{ totalPerCategory }} </q-card-section>
+  <q-card-section>
+    Total:
+    {{ totalPerCategory }}
+  </q-card-section>
 </template>

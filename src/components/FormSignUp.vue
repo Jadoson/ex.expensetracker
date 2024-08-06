@@ -33,7 +33,7 @@ const handleSignup = async () => {
 </script>
 
 <template>
-  <form class="flex q-pa-lg column flex-center" @submit.prevent="handleSignup">
+  <form class="q-pa-lg column flex-center flex" @submit.prevent="handleSignup">
     <q-card flat>
       <q-card-section class="q-gutter-md">
         <div><p>Sign up with your email address and a password</p></div>

@@ -40,7 +40,7 @@ export const useExpensesStore = defineStore('expenses', () => {
 
   const getExpensesByCategory = async (
     categoryId: string
-  ): Promise<Expense[] | null | undefined> => {
+  ): Promise<ExpenseWithCategory[] | null | undefined> => {
     try {
       const id = getUserId();
       const { data, error, status } = await supabase
@@ -53,9 +53,10 @@ export const useExpensesStore = defineStore('expenses', () => {
 
       if (error && status !== 406) throw error;
 
-      return data?.sort((a: Expense, b: Expense) => {
+      return data?.sort((a: { created_at: Date }, b: { created_at: Date }) => {
         return (
-          new Date(b.created_at!).getTime() - new Date(a.created_at!).getTime()
+          new Date(b.created_at)?.getTime() -
+            new Date(a.created_at)?.getTime() || 0
         );
       });
     } catch (error) {
@@ -73,7 +74,7 @@ export const useExpensesStore = defineStore('expenses', () => {
         profile_id,
         created_at: new Date(),
         category_id,
-        amount,
+        amount: parseFloat(amount).toFixed(2),
         description,
       };
 

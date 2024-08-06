@@ -46,7 +46,7 @@ const upsertCategory = async (): Promise<void> => {
             label="Name"
             type="text"
             v-model="fName"
-            :rules="[(val:any) => !!val || 'Name is required']"
+            :rules="[(val:string) => !!val || 'Name is required']"
           />
         </q-card-section>
         <q-card-section>
@@ -54,7 +54,7 @@ const upsertCategory = async (): Promise<void> => {
             id="color"
             label="Color"
             v-model="fColor"
-            :rules="[(val:any) => !!val || 'A color is required']"
+            :rules="[(val:string) => !!val || 'A color is required']"
           >
             <template v-slot:append>
               <q-icon name="colorize" class="cursor-pointer">

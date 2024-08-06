@@ -15,7 +15,7 @@ const formatDate = (date: Date) => {
 </script>
 <template>
   <q-list dense class="expenses" v-if="expenses">
-    <q-item v-for="expense in expenses" :key="expense.id">
+    <q-item v-for="expense in props.expenses" :key="expense.id">
       <q-item-section>
         <q-card-section class="flex row justify-between">
           <div>{{ expense.description }}</div>

@@ -17,7 +17,7 @@ const fCategoryName: Ref<string> = ref('');
 const fAmount: Ref<number> = ref(0);
 const fDescription: Ref<string> = ref('');
 
-const categorieValues = computed(() =>
+const categoryValues = computed(() =>
   categories.value.map((c: { name: string }) => c.name)
 );
 
@@ -80,9 +80,9 @@ const resetForm = () => {
         <q-card-section>
           <q-select
             v-model="fCategoryName"
-            :options="categorieValues"
+            :options="categoryValues"
             label="Please select a category"
-            :rules="[(val:number) => val > 0 || 'A category is required']"
+            :rules="[(val:string) => !!val || 'A category is required']"
           />
         </q-card-section>
         <q-card-section>
@@ -91,7 +91,7 @@ const resetForm = () => {
             label="Description"
             type="text"
             v-model="fDescription"
-            :rules="[(val:number) => !!val || 'Description is required']"
+            :rules="[(val:string) => !!val || 'Description is required']"
           />
         </q-card-section>
         <q-card-actions class="q-gutter-md" align="center">
