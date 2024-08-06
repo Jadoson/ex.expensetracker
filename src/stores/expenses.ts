@@ -74,7 +74,7 @@ export const useExpensesStore = defineStore('expenses', () => {
         profile_id,
         created_at: new Date(),
         category_id,
-        amount: parseFloat(amount).toFixed(2),
+        amount: amount.toFixed(2),
         description,
       };
 
