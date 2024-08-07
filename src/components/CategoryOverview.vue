@@ -17,7 +17,7 @@ const expensesStore = useExpensesStore();
 const loading: Ref<boolean> = ref(true);
 const showDialog: Ref<boolean> = ref(false);
 const selectedCategoryName: Ref<string | undefined> = ref(undefined);
-const expensesByCategoryId: Ref<ExpenseWithCategory[] | undefined> = ref([]);
+const expensesByCategoryId: Ref<ExpenseWithCategory[] | null> = ref(null);
 
 onMounted(async () => {
   if (categories.value.length === 0) {
@@ -40,7 +40,7 @@ const getExpensesByCategoryId = async (
 const getCategories = async () => {
   try {
     loading.value = true;
-    categoriesStore.getCategories();
+    await categoriesStore.getCategories();
   } catch (error) {
     const { message } = error as Error;
     console.error(message);

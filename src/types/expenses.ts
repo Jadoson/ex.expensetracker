@@ -9,5 +9,5 @@ export interface Expense {
 }
 
 export interface ExpenseWithCategory extends Expense {
-  categories: Category;
+  categories: Category[];
 }
