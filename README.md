@@ -1,6 +1,7 @@
 # Packt Expense Tracker (packt-expense-tracker)
 https://jadoson.github.io/ex.expensetracker
-Ypu can use test account: test@test.ru pass: testtest
+
+You can use test account: test@test.ru pass: testtest
 
 An Expense Tracker
 
